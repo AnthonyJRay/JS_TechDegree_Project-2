@@ -1,27 +1,31 @@
-const studentItem = document.querySelectorAll('.student-item');
-const pages = document.querySelector('#pages');
-const itemsArr = Array.from(studentItem);
+const student = document.querySelectorAll('li.student-item');
+const postsPerPage = 10;
+let currentPage = 1;
+pages = [];
 
-function loop() {
-   for(i = 0; i < itemsArr.length; i++) {
-      itemsArr[i].style.display = "hidden";
+for ( let i = 1; i <= (student.length / 10); i++) {
+   pages.push(i);
+   console.log(pages);
+   // console.log(i);
+}
+
+for ( let i = 0; i < student.length; i++) {
+   if (i >= 0 && i <= pages * 10) {
+      pages.push(i);
+      console.log(i);
+      console.log(pages);
    }
 }
-loop();
-console.log(itemsArr);
+
+for ( let i = 0; i < pages.length; i++) {
+   // console.log(pages);
+   // console.log(i);
+   if (student.length[i] <= pages.length * 10) {
+      console.log(pages);
+      console.log(student);
+      console.log(i);
+   }
+}
 
 
-
-// function students(list) {
-//    for (i = 0; i <= list; i++) {
-//       if (list[i] >= 0 && list[i] <= page) {
-//          list[i].style.display = visible;
-//       }
-//    }
-// }
-
-// students(studentItem);
-
-// function func() {
-
-// }
+// console.log(pages);
