@@ -3,29 +3,25 @@ const postsPerPage = 10;
 let currentPage = 1;
 pages = [];
 
-for ( let i = 1; i <= (student.length / 10); i++) {
-   pages.push(i);
-   console.log(pages);
-   // console.log(i);
-}
+// Hide list of students
+student.forEach( i => {
+   i.style.display = 'none';
+});
 
-for ( let i = 0; i < student.length; i++) {
-   if (i >= 0 && i <= pages * 10) {
+// Calculate number of pages
+const pageCalc = () => {
+   for ( let i = 1; i <= Math.ceil((student.length / postsPerPage)); i++) {
       pages.push(i);
-      console.log(i);
-      console.log(pages);
    }
 }
 
-for ( let i = 0; i < pages.length; i++) {
-   // console.log(pages);
-   // console.log(i);
-   if (student.length[i] <= pages.length * 10) {
-      console.log(pages);
-      console.log(student);
-      console.log(i);
+const startIndex = () => {
+   for ( let i = 0; i <= student.length; i++) {
+      if ( i >= 0 && i < (pages * postsPerPage)) {
+         console.log(i)
+      }
    }
 }
 
-
-// console.log(pages);
+pageCalc();
+startIndex();
