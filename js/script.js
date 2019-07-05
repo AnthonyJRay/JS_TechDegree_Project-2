@@ -1,54 +1,49 @@
-const student = document.querySelectorAll('li.student-item');
+const studentList = document.querySelectorAll('li.student-item');
 const postsPerPage = 10;
 let currentPage = 1;
+const nextPage = currentPage + 1;
+const previousPage = currentPage - 1;
+const pageLinks = document.querySelector('#pages');
 pages = [];
-pageIndex = [];
+
+// Calculates the number of Maximum Pages by taking the length of the student Nodelist and dividing it by the amount of max posts per page
+const maxPages = Math.ceil((studentList.length / postsPerPage));
+
+const createPageArray = () => {
+   for ( let i = 0; i <= studentList.length / postsPerPage; i ++) {
+      pages.push(i);
+   }
+}
+
+createPageArray();
+
 
 // Hide list of students
-student.forEach( i => {
+studentList.forEach( i => {
    i.style.display = 'none';
 });
 
-// Calculate number of pages
-
-
-const pageCalc = () => {
-   for ( let i = 1; i <= Math.ceil((student.length / postsPerPage)); i++) {
-      pages.push(i);
-      // console.log(i);
+for ( let i = 0; i < studentList.length; i++) {
+   if  ( i >= 0 && i <= currentPage * 10) {
+      studentList[i].style.display = 'block';
    }
 }
-pageCalc();
 
-const startIndex = () => {
-   for (i = 1; i <= student.length; i++) {
-
+const createPages = () => {
+   for (let i = 0; i <= pages; i++) {
+      pageLinks.innerHTML = "<button>" + 'Hello' + "</button>";
    }
-   console.log(i);
-   console.log(currentPage);
-         if( i > (currentPage * 10) ) {
-            
-         }
-
 }
-startIndex();
 
-// const endIndex = () => {
+createPages();
 
-// }
+/** if the index value of student is > than or = to the lowest number in 
+ * a multiple of 10, and the index value of student is < or equal to the maximum
+ * number in a multiple of 10, set display to 'block'.
+ */
 
-// const startIndex = () => {
-//    const pageindex = pages * postsPerPage;
-//    console.log(pageindex);
-//    for ( let i = 0; i <= student.length; i++) {
-//       if ( i >= 0 && i < pages * postsPerPage) {
-//          console.log(i);
-//          console.log(pages);
-//          // console.log(x);
-//          // student.style.display = 'block';
-//          // console.log(student);
-//       }
-//    }
-// }
-// // startIndex(pageCalc(pageIndex));
-// startIndex();
+ /** if the index value of student is > than or = to currentPage * postPerPage
+  * && is <= nextPage, set display to 'block'.
+  */
+
+
