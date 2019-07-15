@@ -5,7 +5,7 @@ const nextPage = currentPage + 1;
 const previousPage = currentPage - 1;
 const pageLinks = document.querySelector('#pages');
 pages = [];
-const btn = document.createElement("button");
+// const btn = document.createElement("button");
 
 // Calculates the number of Maximum Pages by taking the length of the student Nodelist and dividing it by the amount of max posts per page
 const maxPages = Math.ceil((studentList.length / postsPerPage));
@@ -34,8 +34,13 @@ for ( let i = 0; i < studentList.length; i++) {
 
    for (let i = 0; i < pages.length; i++) {
       // console.log(i);
-      pageLinks.appendChild(btn.i);
+      let btn = document.createElement('a');
+      btn.className = 'pageButtons';
+      btn.href = '#';
+      btn.textContent = i;
+      pageLinks.appendChild(btn);
       console.log(btn);
+      console.log(pageLinks);
    }
    // console.log(pageLinks);
 
