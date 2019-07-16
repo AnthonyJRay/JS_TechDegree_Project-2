@@ -5,6 +5,9 @@ const nextPage = currentPage + 1;
 const previousPage = currentPage - 1;
 const pageLinks = document.querySelector('#pages');
 pages = [];
+let maxDisplay = currentPage * 10;
+let minDisplay = maxDisplay - 10;
+let buttons = document.querySelectorAll('.pageButtons');
 // const btn = document.createElement("button");
 
 // Calculates the number of Maximum Pages by taking the length of the student Nodelist and dividing it by the amount of max posts per page
@@ -26,7 +29,7 @@ studentList.forEach( i => {
 });
 
 for ( let i = 0; i < studentList.length; i++) {
-   if  ( i >= 0 && i <= currentPage * 10) {
+   if  ( i >= minDisplay && i <= maxDisplay) {
       studentList[i].style.display = 'block';
       // console.log(i);
    }
@@ -39,10 +42,19 @@ for ( let i = 0; i < studentList.length; i++) {
       btn.href = '#';
       btn.textContent = i;
       pageLinks.appendChild(btn);
-      console.log(btn);
-      console.log(pageLinks);
    }
-   // console.log(pageLinks);
+   console.log(buttons);
+
+   buttons.forEach (e => {
+      e.addEventListener('click', () {
+         return e.target.innerContent;
+      }
+   })
+   buttons.addEventListener = (e) => {
+      let btnValue = e.target.innerContent;
+      return btnValue;
+   }
+
 
 
 
